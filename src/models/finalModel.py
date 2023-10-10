@@ -19,10 +19,9 @@ df = pd.read_csv('../data/term-deposit-marketing-2020.csv')
 label = df.loc[:, ['y']]
 features = df.drop('y', axis=1)
 
-# apply OHE to label
-for col in columns_to_encode:
-    encoder = LabelEncoder()
-    label['y'] = encoder.fit_transform(label['y'])
+# apply label encoder to label
+encoder = LabelEncoder()
+label['y'] = encoder.fit_transform(label['y'])
     
 # perform imputation of missing values for job, education, and contact through row machine learning prediction
 # first create a copy of the dataframe
