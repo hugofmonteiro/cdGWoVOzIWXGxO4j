@@ -6,7 +6,11 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.model_selection import GridSearchCV, cross_val_score, KFold, train_test_split
 from sklearn.metrics import confusion_matrix, accuracy_score, classification_report, f1_score
 
-### Uniquely and for the sole purpose of learning ML imputation for missing data, this job was performed using these newly imputated values. Keep in mind that f1-score would be the same if the variables that contain missing data (job, education, and contact) were dropped for the random under-sampling technique. Both ways were tested and this is the longer final model with ML imputation.
+### Uniquely and for the sole purpose of learning ML imputation for missing data, 
+#### this job was performed using these newly imputated values. Keep in mind that 
+#### f1-score would be the same if the variables that contain missing data 
+#### (job, education, and contact) were dropped for the random under-sampling technique. 
+#### Both ways were tested and this is the longer final model with ML imputation.
 
 # impoting df
 df = pd.read_csv('../data/term-deposit-marketing-2020.csv')
@@ -100,7 +104,11 @@ merged_df = pd.concat([label, new_df_features], axis=1)  # axis=1 for horizontal
 merged_df.head()
 
 # drop any remaining NaN now with the full dataset again
-merged_df.dropna(inplace=True) # 36 NaN removed. This may vary slightly every time we do ML imputation. These NaN were in the variable education. Perhaps using another algorithm other than DecisionTree we can overcome this issue, but given the correlation of these variables with y and the imputation here just for training, there was no need to worry about it now
+merged_df.dropna(inplace=True) 
+# 36 NaN removed. This may vary slightly every time we do ML imputation. 
+# These NaN were in the variable education. Perhaps using another algorithm 
+# other than DecisionTree we can overcome this issue, but given the correlation 
+# of these variables with y and the imputation here just for training, there was no need to worry about it now
 
 # perform random under-sampling treatment to correct for imbalanced class problem in the dataset
 # class count
